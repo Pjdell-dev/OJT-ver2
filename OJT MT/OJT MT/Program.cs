@@ -15,6 +15,8 @@ namespace OJT_MT
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             Application.Run(new MainForm());
+            //MainForm mainForm = new MainForm();
+            //Application.Run(new Form1(mainForm));
         }
     }
 }

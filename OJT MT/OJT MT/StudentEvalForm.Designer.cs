@@ -1,6 +1,6 @@
 ﻿namespace OJT_MT
 {
-    partial class TimeLogs
+    partial class StudentEvalForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,9 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            dataGridView1 = new DataGridView();
+            tableLayoutPanel1 = new TableLayoutPanel();
             tableLayoutPanel2 = new TableLayoutPanel();
-            tableLayoutPanel3 = new TableLayoutPanel();
             panel3 = new Panel();
             panel2 = new Panel();
             labelContactNumber = new Label();
@@ -39,74 +38,60 @@
             labelStudentIDIndicator = new Label();
             labelName = new Label();
             pictureBox1 = new PictureBox();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            tableLayoutPanelQuestions = new TableLayoutPanel();
+            buttonSubmit = new Button();
+            tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
-            tableLayoutPanel3.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
-            // dataGridView1
+            // tableLayoutPanel1
             // 
-            dataGridView1.AllowUserToAddRows = false;
-            dataGridView1.AllowUserToDeleteRows = false;
-            dataGridView1.AllowUserToResizeColumns = false;
-            dataGridView1.AllowUserToResizeRows = false;
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Dock = DockStyle.Fill;
-            dataGridView1.Location = new Point(103, 123);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.ReadOnly = true;
-            dataGridView1.Size = new Size(594, 282);
-            dataGridView1.TabIndex = 3;
+            tableLayoutPanel1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            tableLayoutPanel1.BackColor = Color.FromArgb(44, 95, 52);
+            tableLayoutPanel1.ColumnCount = 3;
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 100F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 100F));
+            tableLayoutPanel1.Controls.Add(tableLayoutPanel2, 1, 0);
+            tableLayoutPanel1.Controls.Add(tableLayoutPanelQuestions, 1, 1);
+            tableLayoutPanel1.Controls.Add(buttonSubmit, 1, 2);
+            tableLayoutPanel1.Dock = DockStyle.Fill;
+            tableLayoutPanel1.Location = new Point(0, 0);
+            tableLayoutPanel1.Name = "tableLayoutPanel1";
+            tableLayoutPanel1.RowCount = 3;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 120F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 87.5F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 12.5F));
+            tableLayoutPanel1.Size = new Size(941, 601);
+            tableLayoutPanel1.TabIndex = 2;
             // 
             // tableLayoutPanel2
             // 
-            tableLayoutPanel2.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            tableLayoutPanel2.BackColor = Color.FromArgb(44, 95, 52);
             tableLayoutPanel2.ColumnCount = 3;
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 100F));
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 100F));
-            tableLayoutPanel2.Controls.Add(dataGridView1, 1, 1);
-            tableLayoutPanel2.Controls.Add(tableLayoutPanel3, 1, 0);
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 120F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel2.Controls.Add(panel3, 2, 0);
+            tableLayoutPanel2.Controls.Add(panel2, 1, 0);
+            tableLayoutPanel2.Controls.Add(pictureBox1, 0, 0);
             tableLayoutPanel2.Dock = DockStyle.Fill;
-            tableLayoutPanel2.Location = new Point(0, 0);
+            tableLayoutPanel2.Location = new Point(100, 0);
+            tableLayoutPanel2.Margin = new Padding(0);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
-            tableLayoutPanel2.RowCount = 3;
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 120F));
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 87.5F));
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 12.5F));
-            tableLayoutPanel2.Size = new Size(800, 450);
-            tableLayoutPanel2.TabIndex = 5;
-            // 
-            // tableLayoutPanel3
-            // 
-            tableLayoutPanel3.ColumnCount = 3;
-            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 120F));
-            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanel3.Controls.Add(panel3, 2, 0);
-            tableLayoutPanel3.Controls.Add(panel2, 1, 0);
-            tableLayoutPanel3.Controls.Add(pictureBox1, 0, 0);
-            tableLayoutPanel3.Dock = DockStyle.Fill;
-            tableLayoutPanel3.Location = new Point(100, 0);
-            tableLayoutPanel3.Margin = new Padding(0);
-            tableLayoutPanel3.Name = "tableLayoutPanel3";
-            tableLayoutPanel3.RowCount = 1;
-            tableLayoutPanel3.RowStyles.Add(new RowStyle());
-            tableLayoutPanel3.Size = new Size(600, 120);
-            tableLayoutPanel3.TabIndex = 1;
+            tableLayoutPanel2.RowCount = 1;
+            tableLayoutPanel2.RowStyles.Add(new RowStyle());
+            tableLayoutPanel2.Size = new Size(741, 120);
+            tableLayoutPanel2.TabIndex = 1;
             // 
             // panel3
             // 
             panel3.Dock = DockStyle.Fill;
-            panel3.Location = new Point(370, 10);
+            panel3.Location = new Point(440, 10);
             panel3.Margin = new Padding(10);
             panel3.Name = "panel3";
-            panel3.Size = new Size(220, 108);
+            panel3.Size = new Size(291, 108);
             panel3.TabIndex = 2;
             // 
             // panel2
@@ -120,7 +105,7 @@
             panel2.Location = new Point(130, 10);
             panel2.Margin = new Padding(10);
             panel2.Name = "panel2";
-            panel2.Size = new Size(220, 108);
+            panel2.Size = new Size(290, 108);
             panel2.TabIndex = 0;
             // 
             // labelContactNumber
@@ -189,18 +174,49 @@
             pictureBox1.TabIndex = 3;
             pictureBox1.TabStop = false;
             // 
-            // TimeLogs
+            // tableLayoutPanelQuestions
+            // 
+            tableLayoutPanelQuestions.AutoScroll = true;
+            tableLayoutPanelQuestions.AutoSize = true;
+            tableLayoutPanelQuestions.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            tableLayoutPanelQuestions.BackColor = Color.FromArgb(228, 230, 228);
+            tableLayoutPanelQuestions.ColumnCount = 2;
+            tableLayoutPanelQuestions.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanelQuestions.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanelQuestions.Dock = DockStyle.Fill;
+            tableLayoutPanelQuestions.Location = new Point(110, 130);
+            tableLayoutPanelQuestions.Margin = new Padding(10);
+            tableLayoutPanelQuestions.Name = "tableLayoutPanelQuestions";
+            tableLayoutPanelQuestions.RowCount = 2;
+            tableLayoutPanelQuestions.RowStyles.Add(new RowStyle(SizeType.Absolute, 50F));
+            tableLayoutPanelQuestions.RowStyles.Add(new RowStyle());
+            tableLayoutPanelQuestions.Size = new Size(721, 400);
+            tableLayoutPanelQuestions.TabIndex = 4;
+            // 
+            // buttonSubmit
+            // 
+            buttonSubmit.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            buttonSubmit.Location = new Point(746, 560);
+            buttonSubmit.Margin = new Padding(20);
+            buttonSubmit.Name = "buttonSubmit";
+            buttonSubmit.Size = new Size(75, 21);
+            buttonSubmit.TabIndex = 5;
+            buttonSubmit.Text = "Submit";
+            buttonSubmit.UseVisualStyleBackColor = true;
+            buttonSubmit.Click += buttonSubmit_Click;
+            // 
+            // StudentEvalForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
-            Controls.Add(tableLayoutPanel2);
+            ClientSize = new Size(941, 601);
+            Controls.Add(tableLayoutPanel1);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "TimeLogs";
-            Text = "TimeLogs";
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            Name = "StudentEvalForm";
+            Text = "Form1";
+            tableLayoutPanel1.ResumeLayout(false);
+            tableLayoutPanel1.PerformLayout();
             tableLayoutPanel2.ResumeLayout(false);
-            tableLayoutPanel3.ResumeLayout(false);
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
@@ -208,16 +224,18 @@
         }
 
         #endregion
-        private DataGridView dataGridView1;
+
+        private TableLayoutPanel tableLayoutPanel1;
         private TableLayoutPanel tableLayoutPanel2;
-        private TableLayoutPanel tableLayoutPanel3;
         private Panel panel3;
         private Panel panel2;
-        private Label labelContactNumber;
-        private Label labelStudentID;
         private Label labelContactNumberIndicator;
         private Label labelStudentIDIndicator;
         private Label labelName;
+        private TableLayoutPanel tableLayoutPanelQuestions;
+        private Label labelStudentID;
+        private Label labelContactNumber;
         private PictureBox pictureBox1;
+        private Button buttonSubmit;
     }
 }

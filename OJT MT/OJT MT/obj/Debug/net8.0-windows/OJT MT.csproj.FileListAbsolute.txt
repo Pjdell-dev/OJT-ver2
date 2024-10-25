@@ -21,7 +21,8 @@ C:\Users\Akutan\source\repos\OJT MT\OJT MT\obj\Debug\net8.0-windows\OJT_MT.Login
 C:\Users\Akutan\source\repos\OJT MT\OJT MT\obj\Debug\net8.0-windows\OJT_MT.InternList.resources
 C:\Users\Akutan\source\repos\OJT MT\OJT MT\obj\Debug\net8.0-windows\OJT_MT.TimeLogs.resources
 C:\Users\Akutan\source\repos\OJT MT\OJT MT\obj\Debug\net8.0-windows\OJT_MT.SupervisorARPage.resources
-C:\Users\Akutan\source\repos\OJT MT\OJT MT\obj\Debug\net8.0-windows\OJT_MT.StudentEvaluationForm.resources
 C:\Users\Akutan\source\repos\OJT MT\OJT MT\obj\Debug\net8.0-windows\OJT_MT.Properties.Resources.resources
 C:\Users\Akutan\source\repos\OJT MT\OJT MT\obj\Debug\net8.0-windows\OJT_MT.MainForm.resources
 C:\Users\Akutan\source\repos\OJT MT\OJT MT\obj\Debug\net8.0-windows\OJT_MT.Register.resources
+C:\Users\Akutan\source\repos\OJT MT\OJT MT\obj\Debug\net8.0-windows\OJT_MT.StudentEvalForm.resources
+C:\Users\Akutan\source\repos\OJT MT\OJT MT\obj\Debug\net8.0-windows\OJT_MT.AccountSettings.resources

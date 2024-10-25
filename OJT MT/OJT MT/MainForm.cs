@@ -15,12 +15,13 @@ namespace OJT_MT
     public partial class MainForm : Form
     {
         bool sidebarExpand;
-        private string _accountType;
-        private string _accountID;
+        public string accountType;
+        public string accountID;
 
         public MainForm()
         {
             InitializeComponent();
+            DoubleBuffered = true;
             LogOut();
         }
         public void LoadForm(object Form)
@@ -38,8 +39,8 @@ namespace OJT_MT
         }
         public void LoginUser(string account_type, string user_id)
         {
-            _accountType = account_type;
-            _accountID = user_id;
+            accountType = account_type;
+            accountID = user_id;
             switch (account_type)
             {
                 case "admin":
@@ -49,8 +50,8 @@ namespace OJT_MT
                     LoadForm(new Register(this));
                     break;
                 case "supervisor":
-                    buttonAccomplishmentReports.Show();
-                    buttonAttendance.Show();
+                    buttonAccomplishmentReports.Hide();
+                    buttonAttendance.Hide();
                     buttonInternList.Show();
                     LoadForm(new InternList(this));
                     break;
@@ -68,7 +69,7 @@ namespace OJT_MT
         {
             if (sidebarExpand)
             {
-                sidebar.Width -= 10;
+                sidebar.Width -= 25;
                 if (sidebar.Width == sidebar.MinimumSize.Width)
                 {
                     sidebarExpand = false;
@@ -77,7 +78,7 @@ namespace OJT_MT
             }
             else
             {
-                sidebar.Width += 10;
+                sidebar.Width += 25;
                 if (sidebar.Width == sidebar.MaximumSize.Width)
                 {
                     sidebarExpand = true;
@@ -95,7 +96,6 @@ namespace OJT_MT
         {
             SupervisorARPage supervisorARPage = new SupervisorARPage(this);
             LoadForm(supervisorARPage);
-
         }
         private void LogOut()
         {

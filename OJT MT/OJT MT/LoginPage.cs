@@ -6,11 +6,12 @@ namespace OJT_MT
     public partial class LoginPage : Form
     {
         private DatabaseHelper dbHelper = new DatabaseHelper("localhost", "root", "", "ojt");
-        private MainForm mainForm;
+        private MainForm _mainForm;
+        bool passwordShown = true;
         public LoginPage(MainForm mainForm)
         {
             InitializeComponent();
-            this.mainForm = mainForm;
+            this._mainForm = mainForm;
         }
 
 
@@ -24,7 +25,7 @@ namespace OJT_MT
             {
                 string accountType = userInfo.Value.Item1; // Get account type
                 string userId = userInfo.Value.Item2; // Get user ID
-                mainForm.LoginUser(accountType, userId);
+                _mainForm.LoginUser(accountType, userId);
                 return;
             }
             else
@@ -51,9 +52,38 @@ namespace OJT_MT
                 string userId = reader["user_id"].ToString();
                 return (accountType, userId);
             }
-            else           
+            else
 
-            return null; //Return null if no valid result is found
+                return null; //Return null if no valid result is found
+        }
+
+        private void textBoxPassword_TextChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(textBoxPassword.Text))
+            {
+                pictureBoxPasswordEyeIcon.Show();
+            }
+            else
+            {
+                pictureBoxPasswordEyeIcon.Hide();
+            }
+        }
+
+        private void pictureBoxPasswordEyeIcon_Click(object sender, EventArgs e)
+        {
+            if (passwordShown)
+            {
+                textBoxPassword.UseSystemPasswordChar = false;
+                pictureBoxPasswordEyeIcon.Image = Properties.Resources.eye;
+                passwordShown = false;
+            }
+            else
+            {
+                textBoxPassword.UseSystemPasswordChar = true;
+                pictureBoxPasswordEyeIcon.Image = Properties.Resources.eye_crossed;
+                passwordShown = true;
+            }
+            
         }
     }
 }

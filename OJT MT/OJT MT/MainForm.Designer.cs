@@ -60,7 +60,7 @@
             sidebar.MaximumSize = new Size(255, 1080);
             sidebar.MinimumSize = new Size(64, 200);
             sidebar.Name = "sidebar";
-            sidebar.Size = new Size(64, 861);
+            sidebar.Size = new Size(255, 900);
             sidebar.TabIndex = 4;
             // 
             // panel2
@@ -110,6 +110,8 @@
             buttonInternList.FlatStyle = FlatStyle.Flat;
             buttonInternList.Font = new Font("Roboto Cn", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             buttonInternList.ForeColor = SystemColors.ButtonHighlight;
+            buttonInternList.Image = Properties.Resources.member_list;
+            buttonInternList.ImageAlign = ContentAlignment.MiddleLeft;
             buttonInternList.Location = new Point(3, 101);
             buttonInternList.Name = "buttonInternList";
             buttonInternList.Padding = new Padding(15, 0, 0, 0);
@@ -163,6 +165,8 @@
             buttonSettings.FlatStyle = FlatStyle.Flat;
             buttonSettings.Font = new Font("Roboto Cn", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             buttonSettings.ForeColor = SystemColors.ButtonHighlight;
+            buttonSettings.Image = Properties.Resources.user_gear;
+            buttonSettings.ImageAlign = ContentAlignment.MiddleLeft;
             buttonSettings.Location = new Point(3, 242);
             buttonSettings.Name = "buttonSettings";
             buttonSettings.Padding = new Padding(15, 0, 0, 0);
@@ -180,6 +184,8 @@
             buttonLogOut.FlatStyle = FlatStyle.Flat;
             buttonLogOut.Font = new Font("Roboto Cn", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             buttonLogOut.ForeColor = SystemColors.ButtonHighlight;
+            buttonLogOut.Image = Properties.Resources.sign_out_alt1;
+            buttonLogOut.ImageAlign = ContentAlignment.MiddleLeft;
             buttonLogOut.Location = new Point(3, 289);
             buttonLogOut.Name = "buttonLogOut";
             buttonLogOut.Padding = new Padding(15, 0, 0, 0);
@@ -193,9 +199,9 @@
             // mainPanel
             // 
             mainPanel.Dock = DockStyle.Fill;
-            mainPanel.Location = new Point(64, 0);
+            mainPanel.Location = new Point(255, 0);
             mainPanel.Name = "mainPanel";
-            mainPanel.Size = new Size(1520, 861);
+            mainPanel.Size = new Size(1345, 900);
             mainPanel.TabIndex = 5;
             // 
             // sidebarTimer
@@ -207,11 +213,14 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1584, 861);
+            ClientSize = new Size(1600, 900);
             Controls.Add(mainPanel);
             Controls.Add(sidebar);
+            MaximumSize = new Size(1920, 1080);
+            MinimumSize = new Size(1280, 720);
             Name = "MainForm";
-            Text = "Form1";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "OJT Management System";
             sidebar.ResumeLayout(false);
             panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)menuButton).EndInit();

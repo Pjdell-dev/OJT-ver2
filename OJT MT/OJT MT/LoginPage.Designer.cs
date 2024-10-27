@@ -33,10 +33,8 @@
             textBoxPassword = new TextBox();
             tableLayoutPanel1 = new TableLayoutPanel();
             panel1 = new Panel();
-            pictureBoxPasswordEyeIcon = new PictureBox();
             tableLayoutPanel1.SuspendLayout();
             panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBoxPasswordEyeIcon).BeginInit();
             SuspendLayout();
             // 
             // buttonLogin
@@ -72,7 +70,6 @@
             textBoxPassword.Size = new Size(227, 23);
             textBoxPassword.TabIndex = 2;
             textBoxPassword.UseSystemPasswordChar = true;
-            textBoxPassword.TextChanged += textBoxPassword_TextChanged;
             // 
             // tableLayoutPanel1
             // 
@@ -97,7 +94,6 @@
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(224, 224, 224);
-            panel1.Controls.Add(pictureBoxPasswordEyeIcon);
             panel1.Controls.Add(buttonLogin);
             panel1.Controls.Add(textBoxPassword);
             panel1.Controls.Add(textBoxUser);
@@ -107,22 +103,6 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(680, 330);
             panel1.TabIndex = 0;
-            // 
-            // pictureBoxPasswordEyeIcon
-            // 
-            pictureBoxPasswordEyeIcon.Anchor = AnchorStyles.Bottom;
-            pictureBoxPasswordEyeIcon.BackColor = Color.White;
-            pictureBoxPasswordEyeIcon.Image = Properties.Resources.eye_crossed;
-            pictureBoxPasswordEyeIcon.Location = new Point(432, 169);
-            pictureBoxPasswordEyeIcon.Margin = new Padding(0);
-            pictureBoxPasswordEyeIcon.Name = "pictureBoxPasswordEyeIcon";
-            pictureBoxPasswordEyeIcon.Padding = new Padding(2);
-            pictureBoxPasswordEyeIcon.Size = new Size(20, 20);
-            pictureBoxPasswordEyeIcon.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBoxPasswordEyeIcon.TabIndex = 10;
-            pictureBoxPasswordEyeIcon.TabStop = false;
-            pictureBoxPasswordEyeIcon.Visible = false;
-            pictureBoxPasswordEyeIcon.Click += pictureBoxPasswordEyeIcon_Click;
             // 
             // LoginPage
             // 
@@ -137,7 +117,6 @@
             tableLayoutPanel1.ResumeLayout(false);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBoxPasswordEyeIcon).EndInit();
             ResumeLayout(false);
         }
 
@@ -148,6 +127,5 @@
         private TextBox textBoxPassword;
         private TableLayoutPanel tableLayoutPanel1;
         private Panel panel1;
-        private PictureBox pictureBoxPasswordEyeIcon;
     }
 }

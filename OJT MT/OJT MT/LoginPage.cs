@@ -1,5 +1,8 @@
 using MySqlConnector;
+using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 namespace OJT_MT
 {
 
@@ -12,6 +15,7 @@ namespace OJT_MT
         {
             InitializeComponent();
             this._mainForm = mainForm;
+            OurCustomUtils.CreatePasswordEye(textBoxPassword);
         }
 
 
@@ -36,7 +40,7 @@ namespace OJT_MT
 
         private async Task<(string, string)?> ValidateUserAsync(string username, string password)
         {
-            string query = "SELECT user_id, account_type FROM users WHERE user_email=@username AND password=@password";
+            string query = "SELECT user_id, account_type FROM users WHERE user_email=@username AND user_password=@password";
 
             var parameters = new[]
             {
@@ -57,33 +61,6 @@ namespace OJT_MT
                 return null; //Return null if no valid result is found
         }
 
-        private void textBoxPassword_TextChanged(object sender, EventArgs e)
-        {
-            if (!string.IsNullOrWhiteSpace(textBoxPassword.Text))
-            {
-                pictureBoxPasswordEyeIcon.Show();
-            }
-            else
-            {
-                pictureBoxPasswordEyeIcon.Hide();
-            }
-        }
 
-        private void pictureBoxPasswordEyeIcon_Click(object sender, EventArgs e)
-        {
-            if (passwordShown)
-            {
-                textBoxPassword.UseSystemPasswordChar = false;
-                pictureBoxPasswordEyeIcon.Image = Properties.Resources.eye;
-                passwordShown = false;
-            }
-            else
-            {
-                textBoxPassword.UseSystemPasswordChar = true;
-                pictureBoxPasswordEyeIcon.Image = Properties.Resources.eye_crossed;
-                passwordShown = true;
-            }
-            
-        }
     }
 }

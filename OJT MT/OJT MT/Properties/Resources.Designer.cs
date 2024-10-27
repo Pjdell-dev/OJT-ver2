@@ -93,6 +93,26 @@ namespace OJT_MT.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap eyesolid {
+            get {
+                object obj = ResourceManager.GetObject("eyesolid", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap eyesolid_crossed {
+            get {
+                object obj = ResourceManager.GetObject("eyesolid-crossed", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap hamburgerpanel {
             get {
                 object obj = ResourceManager.GetObject("hamburgerpanel", resourceCulture);

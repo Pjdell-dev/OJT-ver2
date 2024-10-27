@@ -47,7 +47,7 @@
             // 
             // sidebar
             // 
-            sidebar.BackColor = Color.Black;
+            sidebar.BackColor = Color.FromArgb(12, 64, 41);
             sidebar.Controls.Add(panel2);
             sidebar.Controls.Add(buttonHome);
             sidebar.Controls.Add(buttonInternList);
@@ -60,7 +60,7 @@
             sidebar.MaximumSize = new Size(255, 1080);
             sidebar.MinimumSize = new Size(64, 200);
             sidebar.Name = "sidebar";
-            sidebar.Size = new Size(255, 900);
+            sidebar.Size = new Size(64, 900);
             sidebar.TabIndex = 4;
             // 
             // panel2
@@ -75,9 +75,9 @@
             // 
             menuButton.BackColor = Color.Transparent;
             menuButton.Image = Properties.Resources.menu_burger1;
-            menuButton.Location = new Point(12, 3);
+            menuButton.Location = new Point(19, 9);
             menuButton.Name = "menuButton";
-            menuButton.Size = new Size(32, 36);
+            menuButton.Size = new Size(24, 24);
             menuButton.SizeMode = PictureBoxSizeMode.StretchImage;
             menuButton.TabIndex = 0;
             menuButton.TabStop = false;
@@ -89,7 +89,7 @@
             buttonHome.FlatAppearance.MouseDownBackColor = Color.Gray;
             buttonHome.FlatAppearance.MouseOverBackColor = Color.FromArgb(64, 64, 64);
             buttonHome.FlatStyle = FlatStyle.Flat;
-            buttonHome.Font = new Font("Roboto Cn", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            buttonHome.Font = new Font("PT Root UI Medium", 11.9999981F);
             buttonHome.ForeColor = SystemColors.ButtonHighlight;
             buttonHome.Image = Properties.Resources.home1;
             buttonHome.ImageAlign = ContentAlignment.MiddleLeft;
@@ -108,7 +108,7 @@
             buttonInternList.FlatAppearance.MouseDownBackColor = Color.Gray;
             buttonInternList.FlatAppearance.MouseOverBackColor = Color.FromArgb(64, 64, 64);
             buttonInternList.FlatStyle = FlatStyle.Flat;
-            buttonInternList.Font = new Font("Roboto Cn", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            buttonInternList.Font = new Font("PT Root UI Medium", 11.9999981F);
             buttonInternList.ForeColor = SystemColors.ButtonHighlight;
             buttonInternList.Image = Properties.Resources.member_list;
             buttonInternList.ImageAlign = ContentAlignment.MiddleLeft;
@@ -128,7 +128,7 @@
             buttonAccomplishmentReports.FlatAppearance.MouseDownBackColor = Color.Gray;
             buttonAccomplishmentReports.FlatAppearance.MouseOverBackColor = Color.FromArgb(64, 64, 64);
             buttonAccomplishmentReports.FlatStyle = FlatStyle.Flat;
-            buttonAccomplishmentReports.Font = new Font("Roboto Cn", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            buttonAccomplishmentReports.Font = new Font("PT Root UI Medium", 11.9999981F);
             buttonAccomplishmentReports.ForeColor = SystemColors.ButtonHighlight;
             buttonAccomplishmentReports.Location = new Point(3, 148);
             buttonAccomplishmentReports.Name = "buttonAccomplishmentReports";
@@ -146,7 +146,7 @@
             buttonAttendance.FlatAppearance.MouseDownBackColor = Color.Gray;
             buttonAttendance.FlatAppearance.MouseOverBackColor = Color.FromArgb(64, 64, 64);
             buttonAttendance.FlatStyle = FlatStyle.Flat;
-            buttonAttendance.Font = new Font("Roboto Cn", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            buttonAttendance.Font = new Font("PT Root UI Medium", 11.9999981F);
             buttonAttendance.ForeColor = SystemColors.ButtonHighlight;
             buttonAttendance.Location = new Point(3, 195);
             buttonAttendance.Name = "buttonAttendance";
@@ -163,7 +163,7 @@
             buttonSettings.FlatAppearance.MouseDownBackColor = Color.Gray;
             buttonSettings.FlatAppearance.MouseOverBackColor = Color.FromArgb(64, 64, 64);
             buttonSettings.FlatStyle = FlatStyle.Flat;
-            buttonSettings.Font = new Font("Roboto Cn", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            buttonSettings.Font = new Font("PT Root UI Medium", 11.9999981F);
             buttonSettings.ForeColor = SystemColors.ButtonHighlight;
             buttonSettings.Image = Properties.Resources.user_gear;
             buttonSettings.ImageAlign = ContentAlignment.MiddleLeft;
@@ -175,6 +175,7 @@
             buttonSettings.Text = "            Settings";
             buttonSettings.TextAlign = ContentAlignment.MiddleLeft;
             buttonSettings.UseVisualStyleBackColor = true;
+            buttonSettings.Click += buttonSettings_Click;
             // 
             // buttonLogOut
             // 
@@ -182,7 +183,7 @@
             buttonLogOut.FlatAppearance.MouseDownBackColor = Color.Gray;
             buttonLogOut.FlatAppearance.MouseOverBackColor = Color.FromArgb(64, 64, 64);
             buttonLogOut.FlatStyle = FlatStyle.Flat;
-            buttonLogOut.Font = new Font("Roboto Cn", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            buttonLogOut.Font = new Font("PT Root UI Medium", 11.9999981F);
             buttonLogOut.ForeColor = SystemColors.ButtonHighlight;
             buttonLogOut.Image = Properties.Resources.sign_out_alt1;
             buttonLogOut.ImageAlign = ContentAlignment.MiddleLeft;
@@ -198,10 +199,11 @@
             // 
             // mainPanel
             // 
+            mainPanel.BackColor = Color.FromArgb(11, 11, 11);
             mainPanel.Dock = DockStyle.Fill;
-            mainPanel.Location = new Point(255, 0);
+            mainPanel.Location = new Point(64, 0);
             mainPanel.Name = "mainPanel";
-            mainPanel.Size = new Size(1345, 900);
+            mainPanel.Size = new Size(1536, 900);
             mainPanel.TabIndex = 5;
             // 
             // sidebarTimer

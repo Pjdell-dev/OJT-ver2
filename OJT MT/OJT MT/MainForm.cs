@@ -110,5 +110,13 @@ namespace OJT_MT
         {
             LogOut();
         }
+
+        private void buttonSettings_Click(object sender, EventArgs e)
+        {
+            AccountSettingsOLD accountSettings = new AccountSettingsOLD(this, accountID, accountType);
+            LoadForm(accountSettings);
+            AccountSettings tEST = new AccountSettings(this, accountID, accountType);
+            LoadForm(tEST);
+        }
     }
 }

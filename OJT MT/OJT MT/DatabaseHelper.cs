@@ -27,6 +27,8 @@ namespace OJT_MT
             if (_connection.State != ConnectionState.Open)
                 await _connection.OpenAsync();
 
+
+
             return _connection;
         }
 
@@ -59,6 +61,16 @@ namespace OJT_MT
                 cmd.Parameters.AddRange(parameters);
 
             return await cmd.ExecuteScalarAsync();
+        }
+
+        public async Task<bool> IsPasswordCorrectAsync(string userID, string password)
+        {
+
+            string query = "SELECT user_password FROM users WHERE user_id = @userID"; // Replace 'user_password' with your actual column name
+            var result = await ExecuteScalarAsync(query, new MySqlParameter("@userID", userID));
+
+            //Check if the result is null (user not found) or compare passwords
+            return result != null && Convert.ToString(result) == password;
         }
         public void Dispose()
         {

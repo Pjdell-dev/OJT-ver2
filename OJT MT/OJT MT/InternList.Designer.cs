@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             dataGridView1 = new DataGridView();
             tableLayoutPanel2 = new TableLayoutPanel();
             label1 = new Label();
@@ -43,12 +44,21 @@
             dataGridView1.AllowUserToResizeRows = false;
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            dataGridView1.BackgroundColor = Color.FromArgb(33, 31, 30);
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(254, 255, 250);
+            dataGridViewCellStyle1.Font = new Font("Poppins", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.ForeColor = Color.FromArgb(50, 49, 48);
+            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(161, 213, 190);
+            dataGridViewCellStyle1.SelectionForeColor = Color.FromArgb(50, 49, 48);
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
+            dataGridView1.DefaultCellStyle = dataGridViewCellStyle1;
             dataGridView1.Dock = DockStyle.Fill;
-            dataGridView1.Location = new Point(103, 123);
+            dataGridView1.Location = new Point(103, 103);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
-            dataGridView1.Size = new Size(594, 282);
+            dataGridView1.Size = new Size(1394, 734);
             dataGridView1.TabIndex = 2;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             dataGridView1.CellFormatting += dataGridView1_CellFormatting;
@@ -56,7 +66,7 @@
             // tableLayoutPanel2
             // 
             tableLayoutPanel2.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            tableLayoutPanel2.BackColor = Color.FromArgb(44, 95, 52);
+            tableLayoutPanel2.BackColor = Color.FromArgb(15, 15, 11);
             tableLayoutPanel2.ColumnCount = 3;
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 100F));
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
@@ -67,29 +77,29 @@
             tableLayoutPanel2.Location = new Point(0, 0);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
             tableLayoutPanel2.RowCount = 3;
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 120F));
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 87.5F));
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 12.5F));
-            tableLayoutPanel2.Size = new Size(800, 450);
-            tableLayoutPanel2.TabIndex = 6;
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 100F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 60F));
+            tableLayoutPanel2.Size = new Size(1600, 900);
+            tableLayoutPanel2.TabIndex = 9;
             // 
             // label1
             // 
             label1.Anchor = AnchorStyles.None;
             label1.AutoSize = true;
-            label1.Font = new Font("Roboto Bk", 26.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.ForeColor = SystemColors.ButtonHighlight;
-            label1.Location = new Point(138, 39);
+            label1.Font = new Font("PT Root UI Bold", 23.9999962F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.FromArgb(241, 249, 246);
+            label1.Location = new Point(718, 29);
             label1.Name = "label1";
-            label1.Size = new Size(524, 42);
+            label1.Size = new Size(164, 41);
             label1.TabIndex = 0;
-            label1.Text = "TUA OJT MONITORING SYSTEM";
+            label1.Text = "Intern List";
             // 
             // InternList
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1600, 900);
             Controls.Add(tableLayoutPanel2);
             FormBorderStyle = FormBorderStyle.None;
             Name = "InternList";

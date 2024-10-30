@@ -40,10 +40,11 @@
             // buttonLogin
             // 
             buttonLogin.Anchor = AnchorStyles.Bottom;
-            buttonLogin.BackColor = Color.Green;
+            buttonLogin.BackColor = Color.FromArgb(21, 115, 74);
             buttonLogin.FlatAppearance.BorderColor = Color.Black;
             buttonLogin.FlatStyle = FlatStyle.Flat;
-            buttonLogin.ForeColor = SystemColors.Control;
+            buttonLogin.Font = new Font("Poppins SemiBold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            buttonLogin.ForeColor = Color.FromArgb(244, 244, 239);
             buttonLogin.Location = new Point(303, 218);
             buttonLogin.Name = "buttonLogin";
             buttonLogin.Size = new Size(75, 28);
@@ -55,26 +56,28 @@
             // textBoxUser
             // 
             textBoxUser.Anchor = AnchorStyles.Bottom;
+            textBoxUser.Font = new Font("Poppins", 9F);
             textBoxUser.Location = new Point(227, 128);
             textBoxUser.Name = "textBoxUser";
             textBoxUser.PlaceholderText = "Enter Email";
-            textBoxUser.Size = new Size(227, 23);
+            textBoxUser.Size = new Size(227, 25);
             textBoxUser.TabIndex = 1;
             // 
             // textBoxPassword
             // 
             textBoxPassword.Anchor = AnchorStyles.Bottom;
+            textBoxPassword.Font = new Font("Poppins", 9F);
             textBoxPassword.Location = new Point(227, 168);
             textBoxPassword.Name = "textBoxPassword";
             textBoxPassword.PlaceholderText = "Enter Password";
-            textBoxPassword.Size = new Size(227, 23);
+            textBoxPassword.Size = new Size(227, 25);
             textBoxPassword.TabIndex = 2;
             textBoxPassword.UseSystemPasswordChar = true;
             // 
             // tableLayoutPanel1
             // 
             tableLayoutPanel1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            tableLayoutPanel1.BackColor = Color.FromArgb(44, 95, 52);
+            tableLayoutPanel1.BackColor = Color.FromArgb(12, 64, 41);
             tableLayoutPanel1.ColumnCount = 3;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 50F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
@@ -93,7 +96,7 @@
             // 
             // panel1
             // 
-            panel1.BackColor = Color.FromArgb(224, 224, 224);
+            panel1.BackColor = Color.FromArgb(33, 31, 30);
             panel1.Controls.Add(buttonLogin);
             panel1.Controls.Add(textBoxPassword);
             panel1.Controls.Add(textBoxUser);

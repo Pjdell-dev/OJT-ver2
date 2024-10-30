@@ -29,7 +29,7 @@ namespace OJT_MT
         public async void LoadAccomplishmentReports(int userID)
         {
             //Load Intern List into Datagridview using supervisor's user_id to get manageable interns
-            var dbHelper = new DatabaseHelper("localhost", "root", "", "ojt");
+            var dbHelper = new DatabaseHelper();
             string query = @"WITH LatestReports AS (
             SELECT 
                 student_number, 

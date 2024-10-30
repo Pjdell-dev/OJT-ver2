@@ -47,7 +47,7 @@ namespace OJT_MT
                     buttonAccomplishmentReports.Hide();
                     buttonAttendance.Hide();
                     buttonInternList.Hide();
-                    LoadForm(new Register(this));
+                    LoadForm(new AdminManageUsersForm(this));
                     break;
                 case "supervisor":
                     buttonAccomplishmentReports.Hide();
@@ -113,10 +113,11 @@ namespace OJT_MT
 
         private void buttonSettings_Click(object sender, EventArgs e)
         {
-            AccountSettingsOLD accountSettings = new AccountSettingsOLD(this, accountID, accountType);
-            LoadForm(accountSettings);
             AccountSettings tEST = new AccountSettings(this, accountID, accountType);
             LoadForm(tEST);
+
+            //StudentEvalForm studentEvalForm = new StudentEvalForm(this, 101, 1);
+            //LoadForm(studentEvalForm);
         }
     }
 }

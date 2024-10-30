@@ -8,7 +8,6 @@ namespace OJT_MT
 
     public partial class LoginPage : Form
     {
-        private DatabaseHelper dbHelper = new DatabaseHelper("localhost", "root", "", "ojt");
         private MainForm _mainForm;
         bool passwordShown = true;
         public LoginPage(MainForm mainForm)
@@ -40,6 +39,7 @@ namespace OJT_MT
 
         private async Task<(string, string)?> ValidateUserAsync(string username, string password)
         {
+            using var dbHelper = new DatabaseHelper();
             string query = "SELECT user_id, account_type FROM users WHERE user_email=@username AND user_password=@password";
 
             var parameters = new[]

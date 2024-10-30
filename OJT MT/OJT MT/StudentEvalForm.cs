@@ -30,7 +30,7 @@ namespace OJT_MT
 
         private async void LoadStudentDetails()
         {
-            var dbHelper = new DatabaseHelper("localhost", "root", "", "ojt");
+            var dbHelper = new DatabaseHelper();
             string query = @"SELECT student_number, last_name, first_name, contact_number FROM students WHERE student_number = @studentID";
             using var reader2 = await dbHelper.ExecuteReaderAsync(query, new MySqlParameter("@studentID", _studentID));
             if (await reader2.ReadAsync())
@@ -43,7 +43,7 @@ namespace OJT_MT
 
         private async void LoadQuestions()
         {
-            var dbHelper = new DatabaseHelper("localhost", "root", "", "ojt");
+            var dbHelper = new DatabaseHelper();
             string query = "SELECT criteria_id, criteria_name FROM criteria";
             using var reader = await dbHelper.ExecuteReaderAsync(query);
             while (reader.Read())
@@ -87,7 +87,7 @@ namespace OJT_MT
 
         private async void EvaluateStudent(int supervisorID, int studentID)
         {
-            var dbHelper = new DatabaseHelper("localhost", "root", "", "ojt");
+            var dbHelper = new DatabaseHelper();
             var result = new StringBuilder("Your Answers:\n\n");
             int evaluationID;
             //Generate Evaluation

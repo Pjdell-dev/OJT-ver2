@@ -25,5 +25,7 @@ C:\Users\Akutan\source\repos\OJT MT\OJT MT\obj\Debug\net8.0-windows\OJT_MT.Prope
 C:\Users\Akutan\source\repos\OJT MT\OJT MT\obj\Debug\net8.0-windows\OJT_MT.MainForm.resources
 C:\Users\Akutan\source\repos\OJT MT\OJT MT\obj\Debug\net8.0-windows\OJT_MT.Register.resources
 C:\Users\Akutan\source\repos\OJT MT\OJT MT\obj\Debug\net8.0-windows\OJT_MT.StudentEvalForm.resources
-C:\Users\Akutan\source\repos\OJT MT\OJT MT\obj\Debug\net8.0-windows\OJT_MT.AccountSettingsOLD.resources
 C:\Users\Akutan\source\repos\OJT MT\OJT MT\obj\Debug\net8.0-windows\OJT_MT.AccountSettings.resources
+C:\Users\Akutan\source\repos\OJT MT\OJT MT\obj\Debug\net8.0-windows\OJT_MT.Form1.resources
+C:\Users\Akutan\source\repos\OJT MT\OJT MT\bin\Debug\net8.0-windows\OJT MT.dll.config
+C:\Users\Akutan\source\repos\OJT MT\OJT MT\obj\Debug\net8.0-windows\OJT_MT.AdminManageUsersForm.resources

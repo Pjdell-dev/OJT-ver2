@@ -44,7 +44,7 @@ namespace OJT_MT
 
         private async void LoadAccountDetails()
         {
-            var dbHelper = new DatabaseHelper("localhost", "root", "", "ojt");
+            var dbHelper = new DatabaseHelper();
             string query = null;
             switch (_accountType)
             {
@@ -65,6 +65,8 @@ namespace OJT_MT
                             WHERE
                                 s.user_id = @user_id";
                     break;
+                case "admin":
+                    return;
             }
             using var reader = await dbHelper.ExecuteReaderAsync(query, new MySqlParameter("@user_id", _userID));
             if (reader.Read())
@@ -100,7 +102,7 @@ namespace OJT_MT
             else
             {
                 //Check if the email already exists in the database
-                var dbHelper = new DatabaseHelper("localhost", "root", "", "ojt");
+                var dbHelper = new DatabaseHelper();
                 string query = "SELECT COUNT(*) FROM users WHERE user_email = @email";
                 var result = await dbHelper.ExecuteScalarAsync(query, new MySqlParameter("@email", text));
                 enableSaveButton = Convert.ToInt32(result) == 0;
@@ -149,7 +151,7 @@ namespace OJT_MT
         private async void buttonUpdatePassword_Click(object sender, EventArgs e)
         {
             string currentPassword = textBoxCurrentPassword.Text;
-            var dbHelper = new DatabaseHelper("localhost", "root", "", "ojt");
+            var dbHelper = new DatabaseHelper();
             if (await dbHelper.IsPasswordCorrectAsync(_userID, currentPassword)) //Check if current password is correct
             {
                 if (currentPassword == textBoxNewPassword.Text)//Check if current password is the same as new password
@@ -184,7 +186,7 @@ namespace OJT_MT
         private async void buttonSaveEmail_Click(object sender, EventArgs e)
         {
             string newEmail = textBoxEmail.Text;
-            var dbHelper = new DatabaseHelper("localhost", "root", "", "ojt");
+            var dbHelper = new DatabaseHelper();
             string query = @"UPDATE users SET user_email = @email WHERE user_id =@userID";
             if (await dbHelper.ExecuteNonQueryAsync(query, new MySqlParameter("@email", newEmail), new MySqlParameter("@userID", _userID)) == 1)
             {

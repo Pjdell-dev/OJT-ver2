@@ -86,10 +86,10 @@
             // buttonHome
             // 
             buttonHome.FlatAppearance.BorderSize = 0;
-            buttonHome.FlatAppearance.MouseDownBackColor = Color.Gray;
-            buttonHome.FlatAppearance.MouseOverBackColor = Color.FromArgb(64, 64, 64);
+            buttonHome.FlatAppearance.MouseDownBackColor = Color.FromArgb(87, 171, 134);
+            buttonHome.FlatAppearance.MouseOverBackColor = Color.FromArgb(37, 132, 90);
             buttonHome.FlatStyle = FlatStyle.Flat;
-            buttonHome.Font = new Font("PT Root UI Medium", 11.9999981F);
+            buttonHome.Font = new Font("Poppins", 12F);
             buttonHome.ForeColor = SystemColors.ButtonHighlight;
             buttonHome.Image = Properties.Resources.home1;
             buttonHome.ImageAlign = ContentAlignment.MiddleLeft;
@@ -105,10 +105,10 @@
             // buttonInternList
             // 
             buttonInternList.FlatAppearance.BorderSize = 0;
-            buttonInternList.FlatAppearance.MouseDownBackColor = Color.Gray;
-            buttonInternList.FlatAppearance.MouseOverBackColor = Color.FromArgb(64, 64, 64);
+            buttonInternList.FlatAppearance.MouseDownBackColor = Color.FromArgb(87, 171, 134);
+            buttonInternList.FlatAppearance.MouseOverBackColor = Color.FromArgb(37, 132, 90);
             buttonInternList.FlatStyle = FlatStyle.Flat;
-            buttonInternList.Font = new Font("PT Root UI Medium", 11.9999981F);
+            buttonInternList.Font = new Font("Poppins", 12F);
             buttonInternList.ForeColor = SystemColors.ButtonHighlight;
             buttonInternList.Image = Properties.Resources.member_list;
             buttonInternList.ImageAlign = ContentAlignment.MiddleLeft;
@@ -125,10 +125,10 @@
             // buttonAccomplishmentReports
             // 
             buttonAccomplishmentReports.FlatAppearance.BorderSize = 0;
-            buttonAccomplishmentReports.FlatAppearance.MouseDownBackColor = Color.Gray;
-            buttonAccomplishmentReports.FlatAppearance.MouseOverBackColor = Color.FromArgb(64, 64, 64);
+            buttonAccomplishmentReports.FlatAppearance.MouseDownBackColor = Color.FromArgb(87, 171, 134);
+            buttonAccomplishmentReports.FlatAppearance.MouseOverBackColor = Color.FromArgb(37, 132, 90);
             buttonAccomplishmentReports.FlatStyle = FlatStyle.Flat;
-            buttonAccomplishmentReports.Font = new Font("PT Root UI Medium", 11.9999981F);
+            buttonAccomplishmentReports.Font = new Font("Poppins", 12F);
             buttonAccomplishmentReports.ForeColor = SystemColors.ButtonHighlight;
             buttonAccomplishmentReports.Location = new Point(3, 148);
             buttonAccomplishmentReports.Name = "buttonAccomplishmentReports";
@@ -143,10 +143,10 @@
             // buttonAttendance
             // 
             buttonAttendance.FlatAppearance.BorderSize = 0;
-            buttonAttendance.FlatAppearance.MouseDownBackColor = Color.Gray;
-            buttonAttendance.FlatAppearance.MouseOverBackColor = Color.FromArgb(64, 64, 64);
+            buttonAttendance.FlatAppearance.MouseDownBackColor = Color.FromArgb(87, 171, 134);
+            buttonAttendance.FlatAppearance.MouseOverBackColor = Color.FromArgb(37, 132, 90);
             buttonAttendance.FlatStyle = FlatStyle.Flat;
-            buttonAttendance.Font = new Font("PT Root UI Medium", 11.9999981F);
+            buttonAttendance.Font = new Font("Poppins", 12F);
             buttonAttendance.ForeColor = SystemColors.ButtonHighlight;
             buttonAttendance.Location = new Point(3, 195);
             buttonAttendance.Name = "buttonAttendance";
@@ -160,10 +160,10 @@
             // buttonSettings
             // 
             buttonSettings.FlatAppearance.BorderSize = 0;
-            buttonSettings.FlatAppearance.MouseDownBackColor = Color.Gray;
-            buttonSettings.FlatAppearance.MouseOverBackColor = Color.FromArgb(64, 64, 64);
+            buttonSettings.FlatAppearance.MouseDownBackColor = Color.FromArgb(87, 171, 134);
+            buttonSettings.FlatAppearance.MouseOverBackColor = Color.FromArgb(37, 132, 90);
             buttonSettings.FlatStyle = FlatStyle.Flat;
-            buttonSettings.Font = new Font("PT Root UI Medium", 11.9999981F);
+            buttonSettings.Font = new Font("Poppins", 12F);
             buttonSettings.ForeColor = SystemColors.ButtonHighlight;
             buttonSettings.Image = Properties.Resources.user_gear;
             buttonSettings.ImageAlign = ContentAlignment.MiddleLeft;
@@ -180,10 +180,10 @@
             // buttonLogOut
             // 
             buttonLogOut.FlatAppearance.BorderSize = 0;
-            buttonLogOut.FlatAppearance.MouseDownBackColor = Color.Gray;
-            buttonLogOut.FlatAppearance.MouseOverBackColor = Color.FromArgb(64, 64, 64);
+            buttonLogOut.FlatAppearance.MouseDownBackColor = Color.FromArgb(87, 171, 134);
+            buttonLogOut.FlatAppearance.MouseOverBackColor = Color.FromArgb(37, 132, 90);
             buttonLogOut.FlatStyle = FlatStyle.Flat;
-            buttonLogOut.Font = new Font("PT Root UI Medium", 11.9999981F);
+            buttonLogOut.Font = new Font("Poppins", 12F);
             buttonLogOut.ForeColor = SystemColors.ButtonHighlight;
             buttonLogOut.Image = Properties.Resources.sign_out_alt1;
             buttonLogOut.ImageAlign = ContentAlignment.MiddleLeft;

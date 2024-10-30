@@ -57,6 +57,7 @@
             flowLayoutPanel2 = new FlowLayoutPanel();
             textBoxEmail = new TextBox();
             labelEmailError = new Label();
+            labelEmailUpdatedSuccessMessage = new Label();
             buttonSaveEmail = new Button();
             panel4 = new Panel();
             label8 = new Label();
@@ -64,7 +65,6 @@
             label11 = new Label();
             labelAccountType = new Label();
             label9 = new Label();
-            labelEmailUpdatedSuccessMessage = new Label();
             tableLayoutPanel2.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             panel6.SuspendLayout();
@@ -81,11 +81,11 @@
             // tableLayoutPanel2
             // 
             tableLayoutPanel2.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            tableLayoutPanel2.BackColor = Color.FromArgb(11, 11, 11);
+            tableLayoutPanel2.BackColor = Color.FromArgb(15, 15, 11);
             tableLayoutPanel2.ColumnCount = 3;
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 100F));
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 100F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 1F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle());
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 1F));
             tableLayoutPanel2.Controls.Add(label1, 1, 0);
             tableLayoutPanel2.Controls.Add(tableLayoutPanel1, 1, 1);
             tableLayoutPanel2.Dock = DockStyle.Fill;
@@ -104,7 +104,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("PT Root UI Bold", 23.9999962F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.FromArgb(241, 249, 246);
-            label1.Location = new Point(658, 29);
+            label1.Location = new Point(501, 29);
             label1.Name = "label1";
             label1.Size = new Size(267, 41);
             label1.TabIndex = 0;
@@ -113,11 +113,11 @@
             // tableLayoutPanel1
             // 
             tableLayoutPanel1.AutoScroll = true;
-            tableLayoutPanel1.BackColor = Color.FromArgb(11, 11, 11);
+            tableLayoutPanel1.BackColor = Color.FromArgb(15, 15, 11);
             tableLayoutPanel1.ColumnCount = 4;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 400F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 500F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 700F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanel1.Controls.Add(panel6, 2, 2);
             tableLayoutPanel1.Controls.Add(panel1, 1, 0);
@@ -126,13 +126,13 @@
             tableLayoutPanel1.Controls.Add(panel4, 1, 1);
             tableLayoutPanel1.Controls.Add(panel5, 1, 2);
             tableLayoutPanel1.Dock = DockStyle.Fill;
-            tableLayoutPanel1.Location = new Point(103, 103);
+            tableLayoutPanel1.Location = new Point(4, 103);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 3;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 250F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 170F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 280F));
-            tableLayoutPanel1.Size = new Size(1378, 695);
+            tableLayoutPanel1.Size = new Size(1261, 695);
             tableLayoutPanel1.TabIndex = 1;
             // 
             // panel6
@@ -142,10 +142,10 @@
             panel6.Controls.Add(flowLayoutPanel1);
             panel6.Dock = DockStyle.Fill;
             panel6.ForeColor = Color.FromArgb(49, 81, 30);
-            panel6.Location = new Point(599, 430);
-            panel6.Margin = new Padding(10);
+            panel6.Location = new Point(580, 430);
+            panel6.Margin = new Padding(0, 10, 10, 10);
             panel6.Name = "panel6";
-            panel6.Size = new Size(680, 260);
+            panel6.Size = new Size(490, 260);
             panel6.TabIndex = 9;
             // 
             // label10
@@ -154,7 +154,7 @@
             label10.AutoSize = true;
             label10.Font = new Font("Poppins", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label10.ForeColor = Color.FromArgb(244, 244, 239);
-            label10.Location = new Point(85, 28);
+            label10.Location = new Point(53, 28);
             label10.Name = "label10";
             label10.Size = new Size(193, 34);
             label10.TabIndex = 36;
@@ -259,13 +259,14 @@
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(33, 31, 30);
+            panel1.BackgroundImageLayout = ImageLayout.None;
             panel1.Controls.Add(label7);
             panel1.Controls.Add(pictureBoxUserImage);
             panel1.Dock = DockStyle.Fill;
-            panel1.Location = new Point(99, 10);
-            panel1.Margin = new Padding(10);
+            panel1.Location = new Point(190, 10);
+            panel1.Margin = new Padding(10, 10, 0, 10);
             panel1.Name = "panel1";
-            panel1.Size = new Size(480, 230);
+            panel1.Size = new Size(390, 230);
             panel1.TabIndex = 4;
             // 
             // label7
@@ -274,7 +275,7 @@
             label7.AutoSize = true;
             label7.Font = new Font("Poppins", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label7.ForeColor = Color.FromArgb(244, 244, 239);
-            label7.Location = new Point(117, 25);
+            label7.Location = new Point(72, 25);
             label7.Name = "label7";
             label7.Size = new Size(276, 42);
             label7.TabIndex = 32;
@@ -284,7 +285,7 @@
             // 
             pictureBoxUserImage.Anchor = AnchorStyles.Top;
             pictureBoxUserImage.Image = Properties.Resources.aku;
-            pictureBoxUserImage.Location = new Point(117, 69);
+            pictureBoxUserImage.Location = new Point(72, 69);
             pictureBoxUserImage.Name = "pictureBoxUserImage";
             pictureBoxUserImage.Size = new Size(127, 128);
             pictureBoxUserImage.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -305,10 +306,10 @@
             panel2.Controls.Add(label5);
             panel2.Dock = DockStyle.Fill;
             panel2.ForeColor = Color.FromArgb(49, 81, 30);
-            panel2.Location = new Point(599, 10);
-            panel2.Margin = new Padding(10);
+            panel2.Location = new Point(580, 10);
+            panel2.Margin = new Padding(0, 10, 10, 10);
             panel2.Name = "panel2";
-            panel2.Size = new Size(680, 230);
+            panel2.Size = new Size(490, 230);
             panel2.TabIndex = 5;
             // 
             // label3
@@ -405,10 +406,10 @@
             panel3.Controls.Add(flowLayoutPanel2);
             panel3.Dock = DockStyle.Fill;
             panel3.ForeColor = Color.FromArgb(49, 81, 30);
-            panel3.Location = new Point(599, 260);
-            panel3.Margin = new Padding(10);
+            panel3.Location = new Point(580, 260);
+            panel3.Margin = new Padding(0, 10, 10, 10);
             panel3.Name = "panel3";
-            panel3.Size = new Size(680, 150);
+            panel3.Size = new Size(490, 150);
             panel3.TabIndex = 6;
             // 
             // flowLayoutPanel2
@@ -418,7 +419,7 @@
             flowLayoutPanel2.Controls.Add(labelEmailUpdatedSuccessMessage);
             flowLayoutPanel2.Controls.Add(buttonSaveEmail);
             flowLayoutPanel2.FlowDirection = FlowDirection.TopDown;
-            flowLayoutPanel2.Location = new Point(85, 19);
+            flowLayoutPanel2.Location = new Point(85, 32);
             flowLayoutPanel2.Name = "flowLayoutPanel2";
             flowLayoutPanel2.Size = new Size(270, 115);
             flowLayoutPanel2.TabIndex = 3;
@@ -445,6 +446,18 @@
             labelEmailError.Text = "Yes";
             labelEmailError.Visible = false;
             // 
+            // labelEmailUpdatedSuccessMessage
+            // 
+            labelEmailUpdatedSuccessMessage.AutoSize = true;
+            labelEmailUpdatedSuccessMessage.Font = new Font("Poppins Medium", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelEmailUpdatedSuccessMessage.ForeColor = Color.FromArgb(87, 171, 134);
+            labelEmailUpdatedSuccessMessage.Location = new Point(3, 53);
+            labelEmailUpdatedSuccessMessage.Name = "labelEmailUpdatedSuccessMessage";
+            labelEmailUpdatedSuccessMessage.Size = new Size(197, 22);
+            labelEmailUpdatedSuccessMessage.TabIndex = 3;
+            labelEmailUpdatedSuccessMessage.Text = "Email updated successfully";
+            labelEmailUpdatedSuccessMessage.Visible = false;
+            // 
             // buttonSaveEmail
             // 
             buttonSaveEmail.BackColor = Color.FromArgb(21, 115, 74);
@@ -466,10 +479,10 @@
             panel4.Controls.Add(label8);
             panel4.Dock = DockStyle.Fill;
             panel4.ForeColor = Color.FromArgb(49, 81, 30);
-            panel4.Location = new Point(99, 260);
-            panel4.Margin = new Padding(10);
+            panel4.Location = new Point(190, 260);
+            panel4.Margin = new Padding(10, 10, 0, 10);
             panel4.Name = "panel4";
-            panel4.Size = new Size(480, 150);
+            panel4.Size = new Size(390, 150);
             panel4.TabIndex = 7;
             // 
             // label8
@@ -478,7 +491,7 @@
             label8.AutoSize = true;
             label8.Font = new Font("Poppins", 18F, FontStyle.Bold);
             label8.ForeColor = Color.FromArgb(244, 244, 239);
-            label8.Location = new Point(117, 19);
+            label8.Location = new Point(72, 18);
             label8.Name = "label8";
             label8.Size = new Size(86, 42);
             label8.TabIndex = 36;
@@ -492,10 +505,10 @@
             panel5.Controls.Add(label9);
             panel5.Dock = DockStyle.Fill;
             panel5.ForeColor = Color.FromArgb(49, 81, 30);
-            panel5.Location = new Point(99, 430);
-            panel5.Margin = new Padding(10);
+            panel5.Location = new Point(190, 430);
+            panel5.Margin = new Padding(10, 10, 0, 10);
             panel5.Name = "panel5";
-            panel5.Size = new Size(480, 260);
+            panel5.Size = new Size(390, 260);
             panel5.TabIndex = 8;
             // 
             // label11
@@ -504,7 +517,7 @@
             label11.CausesValidation = false;
             label11.Font = new Font("PT Root UI Medium", 11.9999981F, FontStyle.Bold);
             label11.ForeColor = Color.FromArgb(199, 200, 196);
-            label11.Location = new Point(117, 71);
+            label11.Location = new Point(80, 78);
             label11.Name = "label11";
             label11.Size = new Size(119, 20);
             label11.TabIndex = 36;
@@ -516,7 +529,7 @@
             labelAccountType.CausesValidation = false;
             labelAccountType.Font = new Font("PT Root UI", 11.9999981F, FontStyle.Regular, GraphicsUnit.Point, 0);
             labelAccountType.ForeColor = Color.FromArgb(199, 200, 196);
-            labelAccountType.Location = new Point(242, 71);
+            labelAccountType.Location = new Point(205, 78);
             labelAccountType.Name = "labelAccountType";
             labelAccountType.Size = new Size(103, 20);
             labelAccountType.TabIndex = 37;
@@ -528,32 +541,20 @@
             label9.AutoSize = true;
             label9.Font = new Font("Poppins", 18F, FontStyle.Bold);
             label9.ForeColor = Color.FromArgb(244, 244, 239);
-            label9.Location = new Point(117, 28);
+            label9.Location = new Point(72, 28);
             label9.Name = "label9";
             label9.Size = new Size(260, 42);
             label9.TabIndex = 35;
             label9.Text = "Sign-In Information";
             // 
-            // labelEmailUpdatedSuccessMessage
-            // 
-            labelEmailUpdatedSuccessMessage.AutoSize = true;
-            labelEmailUpdatedSuccessMessage.Font = new Font("Poppins Medium", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelEmailUpdatedSuccessMessage.ForeColor = Color.FromArgb(87, 171, 134);
-            labelEmailUpdatedSuccessMessage.Location = new Point(3, 53);
-            labelEmailUpdatedSuccessMessage.Name = "labelEmailUpdatedSuccessMessage";
-            labelEmailUpdatedSuccessMessage.Size = new Size(197, 22);
-            labelEmailUpdatedSuccessMessage.TabIndex = 3;
-            labelEmailUpdatedSuccessMessage.Text = "Email updated successfully";
-            labelEmailUpdatedSuccessMessage.Visible = false;
-            // 
-            // TEST
+            // AccountSettings
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1584, 861);
             Controls.Add(tableLayoutPanel2);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "TEST";
+            Name = "AccountSettings";
             Text = "TEST";
             tableLayoutPanel2.ResumeLayout(false);
             tableLayoutPanel2.PerformLayout();

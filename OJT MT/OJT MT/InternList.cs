@@ -15,19 +15,21 @@ namespace OJT_MT
     public partial class InternList : Form
     {
         private MainForm mainForm;
+        private int hoveredRowIndex = -1;
+        private int hoveredColumnIndex = -1;
         public InternList(MainForm mainForm)
         {
             InitializeComponent();
             this.mainForm = mainForm;
-            LoadInternList(mainForm.accountID);
+            _ = LoadInternList(mainForm.accountID);
         }
-        private async void LoadInternList(string userID)
+        private async Task LoadInternList(string userID)
         {
             //Load Intern List into Datagridview
-            var dbHelper = new DatabaseHelper("localhost", "root", "", "ojt");
+            using var dbHelper = new DatabaseHelper();
             string query = @"
                 SELECT 
-                    s.student_number AS 'Student Number',
+                    s.student_id AS 'Student Number',
                     s.first_name AS 'First Name',
                     s.last_name AS 'Last Name'
                 FROM 
@@ -45,17 +47,21 @@ namespace OJT_MT
             dataGridView1.DataSource = dataTable;
 
             //Add Button To datagridview (View time log)
-            DataGridViewButtonColumn timeLogButtonColumn = new DataGridViewButtonColumn();
-            timeLogButtonColumn.HeaderText = "Time Log";
-            timeLogButtonColumn.Text = "View"; // Button text
-            timeLogButtonColumn.UseColumnTextForButtonValue = true; //Make text as button text
+            DataGridViewButtonColumn timeLogButtonColumn = new DataGridViewButtonColumn
+            {
+                HeaderText = "Time Log",
+                Text = "View", // Button text
+                UseColumnTextForButtonValue = true
+            };
             dataGridView1.Columns.Add(timeLogButtonColumn); //Add column (button) to datagrid
 
             //Add Button To datagridview (View Accomplishment Reports)
-            DataGridViewButtonColumn accRepButtonColumn = new DataGridViewButtonColumn();
-            accRepButtonColumn.HeaderText = "Accomplishment Reports";
-            accRepButtonColumn.Text = "View"; // Button text
-            accRepButtonColumn.UseColumnTextForButtonValue = true; //Make text as button text
+            DataGridViewButtonColumn accRepButtonColumn = new DataGridViewButtonColumn
+            {
+                HeaderText = "Accomplishment Reports",
+                Text = "View", //Button text
+                UseColumnTextForButtonValue = true //Make text as button text
+            };            
             dataGridView1.Columns.Add(accRepButtonColumn); //Add column (button) to datagrid
             timeLogButtonColumn.Width = 100;
             accRepButtonColumn.Width = 150;
@@ -70,30 +76,35 @@ namespace OJT_MT
             {
                 var cell = dataGridView1[e.ColumnIndex, e.RowIndex];
                 cell.Style.Padding = new Padding(20, 10, 20, 10);
+
             }
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private async void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex < 0 || e.ColumnIndex < 0)
-            {
-                return;
-            }
-            String columnName = this.dataGridView1.Columns[e.ColumnIndex].HeaderText;
-            if (columnName == "Time Log")
-            {
-                // Get student number
-                var student_number = dataGridView1.Rows[e.RowIndex].Cells["Student Number"].Value;
+            if (e.RowIndex < 0 || e.ColumnIndex < 0) return;
 
-                //Show timelogs for the student
-                TimeLogs timeLogs = new TimeLogs(mainForm);
-                mainForm.LoadForm(timeLogs);
-                timeLogs.DisplayLogs(Convert.ToInt32(student_number));
-            }
-            if (columnName == "Accomplishment Reports")
+            var columnName = this.dataGridView1.Columns[e.ColumnIndex].HeaderText;
+            var studentNumber = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["Student Number"].Value);
+
+            switch (columnName)
             {
-                MessageBox.Show("NICE");
+                case "Time Log": //Time Log button function
+                    await ShowTimeLogs(studentNumber);
+                    break;
+
+                case "Accomplishment Reports": //accomplishment reports button function
+                    MessageBox.Show("NICE"); 
+                    break;
             }
         }
+
+        private async Task ShowTimeLogs(int studentNumber)
+        {
+            var timeLogs = new TimeLogs(mainForm);
+            mainForm.LoadForm(timeLogs);
+            await timeLogs.DisplayLogs(studentNumber);
+        }
+
     }
 }

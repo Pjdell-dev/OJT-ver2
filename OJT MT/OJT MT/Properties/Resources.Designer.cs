@@ -143,6 +143,26 @@ namespace OJT_MT.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icon_default {
+            get {
+                object obj = ResourceManager.GetObject("icon_default", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap manage_accounts_icon {
+            get {
+                object obj = ResourceManager.GetObject("manage_accounts_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap member_list {
             get {
                 object obj = ResourceManager.GetObject("member-list", resourceCulture);
@@ -173,6 +193,16 @@ namespace OJT_MT.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ojt_2_logo {
+            get {
+                object obj = ResourceManager.GetObject("ojt_2_logo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap sign_out_alt {
             get {
                 object obj = ResourceManager.GetObject("sign-out-alt", resourceCulture);
@@ -186,6 +216,16 @@ namespace OJT_MT.Properties {
         internal static System.Drawing.Bitmap sign_out_alt1 {
             get {
                 object obj = ResourceManager.GetObject("sign-out-alt1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap user_add {
+            get {
+                object obj = ResourceManager.GetObject("user-add", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

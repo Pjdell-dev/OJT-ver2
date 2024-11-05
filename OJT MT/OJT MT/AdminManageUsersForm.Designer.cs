@@ -38,6 +38,8 @@
             tableLayoutPanel2 = new TableLayoutPanel();
             label4 = new Label();
             panel1 = new Panel();
+            labelAddNewUser = new Label();
+            pictureBoxAddNewUser = new PictureBox();
             comboBoxFilter = new ComboBox();
             tableLayoutPanelManageAccounts = new TableLayoutPanel();
             panelUpdateWindow = new Panel();
@@ -67,6 +69,7 @@
             ((System.ComponentModel.ISupportInitialize)dataGridViewUsers).BeginInit();
             tableLayoutPanel2.SuspendLayout();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxAddNewUser).BeginInit();
             tableLayoutPanelManageAccounts.SuspendLayout();
             panelUpdateWindow.SuspendLayout();
             flowLayoutPanelUpdateWindow.SuspendLayout();
@@ -81,12 +84,13 @@
             // 
             btnUpdate.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnUpdate.BackColor = Color.FromArgb(21, 115, 74);
+            btnUpdate.FlatAppearance.BorderSize = 0;
             btnUpdate.FlatStyle = FlatStyle.Flat;
             btnUpdate.Font = new Font("Poppins", 9.75F, FontStyle.Bold);
             btnUpdate.ForeColor = Color.FromArgb(244, 244, 239);
-            btnUpdate.Location = new Point(679, 33);
+            btnUpdate.Location = new Point(695, 33);
             btnUpdate.Name = "btnUpdate";
-            btnUpdate.Size = new Size(87, 33);
+            btnUpdate.Size = new Size(71, 33);
             btnUpdate.TabIndex = 16;
             btnUpdate.Text = "Update";
             btnUpdate.UseVisualStyleBackColor = false;
@@ -96,12 +100,13 @@
             // 
             btnRemove.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnRemove.BackColor = Color.FromArgb(255, 66, 72);
+            btnRemove.FlatAppearance.BorderSize = 0;
             btnRemove.FlatStyle = FlatStyle.Flat;
             btnRemove.Font = new Font("Poppins", 9.75F, FontStyle.Bold);
             btnRemove.ForeColor = Color.White;
             btnRemove.Location = new Point(772, 33);
             btnRemove.Name = "btnRemove";
-            btnRemove.Size = new Size(87, 33);
+            btnRemove.Size = new Size(81, 33);
             btnRemove.TabIndex = 15;
             btnRemove.Text = "Remove";
             btnRemove.UseVisualStyleBackColor = false;
@@ -111,7 +116,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Poppins", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.ForeColor = Color.White;
+            label2.ForeColor = Color.FromArgb(254, 255, 250);
             label2.Location = new Point(22, 8);
             label2.Name = "label2";
             label2.Size = new Size(68, 23);
@@ -137,7 +142,7 @@
             dataGridViewUsers.AllowUserToResizeRows = false;
             dataGridViewUsers.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewUsers.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridViewUsers.BackgroundColor = Color.FromArgb(33, 31, 30);
+            dataGridViewUsers.BackgroundColor = Color.FromArgb(217, 218, 214);
             dataGridViewUsers.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = Color.FromArgb(254, 255, 250);
@@ -153,14 +158,14 @@
             dataGridViewUsers.Name = "dataGridViewUsers";
             dataGridViewUsers.ReadOnly = true;
             dataGridViewUsers.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridViewUsers.Size = new Size(884, 383);
+            dataGridViewUsers.Size = new Size(883, 383);
             dataGridViewUsers.TabIndex = 2;
             dataGridViewUsers.SelectionChanged += dataGridViewUsers_SelectionChanged;
             // 
             // tableLayoutPanel2
             // 
             tableLayoutPanel2.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            tableLayoutPanel2.BackColor = Color.FromArgb(15, 15, 11);
+            tableLayoutPanel2.BackColor = Color.FromArgb(12, 64, 41);
             tableLayoutPanel2.ColumnCount = 3;
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 100F));
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
@@ -194,16 +199,42 @@
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(41, 40, 39);
+            panel1.Controls.Add(btnUpdate);
+            panel1.Controls.Add(btnRemove);
+            panel1.Controls.Add(labelAddNewUser);
+            panel1.Controls.Add(pictureBoxAddNewUser);
             panel1.Controls.Add(comboBoxFilter);
             panel1.Controls.Add(label2);
             panel1.Controls.Add(tbFilter);
-            panel1.Controls.Add(btnUpdate);
-            panel1.Controls.Add(btnRemove);
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(103, 103);
             panel1.Name = "panel1";
             panel1.Size = new Size(900, 74);
             panel1.TabIndex = 13;
+            // 
+            // labelAddNewUser
+            // 
+            labelAddNewUser.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            labelAddNewUser.AutoSize = true;
+            labelAddNewUser.Font = new Font("Poppins", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelAddNewUser.ForeColor = Color.FromArgb(254, 255, 250);
+            labelAddNewUser.Location = new Point(763, 9);
+            labelAddNewUser.Name = "labelAddNewUser";
+            labelAddNewUser.Size = new Size(69, 23);
+            labelAddNewUser.TabIndex = 19;
+            labelAddNewUser.Text = "Add new";
+            // 
+            // pictureBoxAddNewUser
+            // 
+            pictureBoxAddNewUser.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            pictureBoxAddNewUser.Cursor = Cursors.Hand;
+            pictureBoxAddNewUser.Image = Properties.Resources.user_add;
+            pictureBoxAddNewUser.Location = new Point(833, 8);
+            pictureBoxAddNewUser.Name = "pictureBoxAddNewUser";
+            pictureBoxAddNewUser.Size = new Size(20, 20);
+            pictureBoxAddNewUser.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBoxAddNewUser.TabIndex = 18;
+            pictureBoxAddNewUser.TabStop = false;
             // 
             // comboBoxFilter
             // 
@@ -223,7 +254,7 @@
             // 
             tableLayoutPanelManageAccounts.ColumnCount = 2;
             tableLayoutPanelManageAccounts.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanelManageAccounts.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 10F));
+            tableLayoutPanelManageAccounts.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 11F));
             tableLayoutPanelManageAccounts.Controls.Add(dataGridViewUsers, 0, 0);
             tableLayoutPanelManageAccounts.Controls.Add(panelUpdateWindow, 1, 0);
             tableLayoutPanelManageAccounts.Dock = DockStyle.Fill;
@@ -240,11 +271,11 @@
             panelUpdateWindow.Controls.Add(flowLayoutPanelUpdateWindow);
             panelUpdateWindow.Dock = DockStyle.Fill;
             panelUpdateWindow.ForeColor = Color.FromArgb(254, 255, 250);
-            panelUpdateWindow.Location = new Point(890, 0);
+            panelUpdateWindow.Location = new Point(889, 0);
             panelUpdateWindow.Margin = new Padding(0);
             panelUpdateWindow.MinimumSize = new Size(10, 0);
             panelUpdateWindow.Name = "panelUpdateWindow";
-            panelUpdateWindow.Size = new Size(10, 389);
+            panelUpdateWindow.Size = new Size(11, 389);
             panelUpdateWindow.TabIndex = 0;
             // 
             // flowLayoutPanelUpdateWindow
@@ -419,6 +450,7 @@
             comboBoxSupervisorID.Name = "comboBoxSupervisorID";
             comboBoxSupervisorID.Size = new Size(195, 27);
             comboBoxSupervisorID.TabIndex = 18;
+            comboBoxSupervisorID.SelectionChangeCommitted += comboBoxSupervisorID_SelectionChangeCommitted;
             // 
             // panel10
             // 
@@ -433,6 +465,7 @@
             // 
             buttonCancel.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             buttonCancel.BackColor = Color.FromArgb(255, 66, 72);
+            buttonCancel.FlatAppearance.BorderSize = 0;
             buttonCancel.FlatStyle = FlatStyle.Flat;
             buttonCancel.Font = new Font("Poppins", 9.75F, FontStyle.Bold);
             buttonCancel.ForeColor = Color.White;
@@ -448,6 +481,7 @@
             // 
             buttonSave.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             buttonSave.BackColor = Color.FromArgb(21, 115, 74);
+            buttonSave.FlatAppearance.BorderSize = 0;
             buttonSave.FlatStyle = FlatStyle.Flat;
             buttonSave.Font = new Font("Poppins", 9.75F, FontStyle.Bold);
             buttonSave.ForeColor = Color.FromArgb(244, 244, 239);
@@ -455,7 +489,7 @@
             buttonSave.Name = "buttonSave";
             buttonSave.Size = new Size(87, 33);
             buttonSave.TabIndex = 22;
-            buttonSave.Text = "SAVE";
+            buttonSave.Text = "Save";
             buttonSave.UseVisualStyleBackColor = false;
             buttonSave.Click += buttonSave_Click;
             // 
@@ -466,9 +500,9 @@
             labelErrorMessage.ForeColor = Color.FromArgb(255, 66, 72);
             labelErrorMessage.Location = new Point(3, 187);
             labelErrorMessage.Name = "labelErrorMessage";
-            labelErrorMessage.Size = new Size(196, 22);
+            labelErrorMessage.Size = new Size(143, 22);
             labelErrorMessage.TabIndex = 41;
-            labelErrorMessage.Text = "New password must match";
+            labelErrorMessage.Text = "Error Message Here";
             labelErrorMessage.Visible = false;
             // 
             // labelSuccessMessage
@@ -478,9 +512,9 @@
             labelSuccessMessage.ForeColor = Color.FromArgb(87, 171, 134);
             labelSuccessMessage.Location = new Point(3, 209);
             labelSuccessMessage.Name = "labelSuccessMessage";
-            labelSuccessMessage.Size = new Size(226, 22);
+            labelSuccessMessage.Size = new Size(164, 22);
             labelSuccessMessage.TabIndex = 42;
-            labelSuccessMessage.Text = "Password updated successfully";
+            labelSuccessMessage.Text = "Success Message Here";
             labelSuccessMessage.Visible = false;
             // 
             // manageUsersPanelTimer
@@ -498,11 +532,13 @@
             FormBorderStyle = FormBorderStyle.None;
             Name = "AdminManageUsersForm";
             Text = "AdminManageUsersForm";
+            Load += AdminManageUsersForm_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridViewUsers).EndInit();
             tableLayoutPanel2.ResumeLayout(false);
             tableLayoutPanel2.PerformLayout();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxAddNewUser).EndInit();
             tableLayoutPanelManageAccounts.ResumeLayout(false);
             panelUpdateWindow.ResumeLayout(false);
             flowLayoutPanelUpdateWindow.ResumeLayout(false);
@@ -554,5 +590,7 @@
         private ComboBox comboBoxSupervisorID;
         private Label labelErrorMessage;
         private Label labelSuccessMessage;
+        private PictureBox pictureBoxAddNewUser;
+        private Label labelAddNewUser;
     }
 }

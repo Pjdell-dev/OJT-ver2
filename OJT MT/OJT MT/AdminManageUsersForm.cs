@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
@@ -20,20 +21,33 @@ namespace OJT_MT
         bool manageUsersPanelExpand = false;
         private MainForm _mainForm;
         private int currentUserId = -1;
-        private string currentUserAccountType;
-        private DataTable userTable;
+        private string currentUserAccountType = string.Empty;
+        private DataTable userTable = new DataTable();
         public AdminManageUsersForm(MainForm mainForm)
         {
             DoubleBuffered = true;
             this._mainForm = mainForm;
             InitializeComponent();
             comboBoxFilter.SelectedIndex = 0; //Para default value na yung --select--
-            _ = LoadUsers();
+            pictureBoxAddNewUser.Image = OurCustomUtils.RecolorImage(Properties.Resources.user_add, "#fefffa");
+            pictureBoxAddNewUser.Click += AddUsersClick;
+            labelAddNewUser.Click += AddUsersClick;
+            comboBoxSupervisorID.KeyPress += textBoxID_KeyPress;
         }
+
+        private async void AdminManageUsersForm_Load(object sender, EventArgs e)
+        {
+            await LoadUsers();
+            await LoadUserInfo(currentUserId, currentUserAccountType);
+
+        }
+
         private async Task LoadUsers()
         {
-            using var dbHelper = new DatabaseHelper();
-            string query = @"SELECT 
+            try
+            {
+                using var dbHelper = new DatabaseHelper();
+                string query = @"SELECT 
                                 student_id AS 'ID', 
                                 CONCAT(first_name, ' ', last_name) AS 'Full Name', 
                                 'Student' AS 'Account Type'
@@ -50,15 +64,33 @@ namespace OJT_MT
                                 supervisors
                             ORDER BY 
                                 'Full Name';";
+                using var reader = await dbHelper.ExecuteReaderAsync(query);
+                if (reader.Read())
+                {
+                    userTable = new DataTable();
+                    userTable.Load(reader);
+                    dataGridViewUsers.DataSource = userTable;
+                }
 
 
-            using var reader = await dbHelper.ExecuteReaderAsync(query);
-            if (reader.Read())
-            {
-                userTable = new DataTable();
-                userTable.Load(reader);
-                dataGridViewUsers.DataSource = userTable;
+                //Load combobox supervisor id
+                comboBoxSupervisorID.SelectedIndex = -1;
+                comboBoxSupervisorID.Items.Clear(); //Clear items
+                query = @"SELECT supervisor_id, first_name, last_name FROM supervisors";
+                using var reader2 = await dbHelper.ExecuteReaderAsync(query);
+                var supervisorItems = new List<string>();
+                while (reader2.Read())
+                {
+                    string item = $"{reader2["supervisor_id"]} - {reader2["first_name"]} {reader2["last_name"]}";
+                    supervisorItems.Add(item);
+                }
+                comboBoxSupervisorID.Items.AddRange(supervisorItems.ToArray());
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+
 
 
         }
@@ -67,7 +99,7 @@ namespace OJT_MT
         private void tbFilter_TextChanged(object sender, EventArgs e)
         {
             string filterText = tbFilter.Text.Trim();
-            string selectedColumn = comboBoxFilter.SelectedItem.ToString(); //Get yung value ng combobox para alam kung ano ffilter
+            string selectedColumn = comboBoxFilter.SelectedItem?.ToString() ?? string.Empty;//Get yung value ng combobox para alam kung ano ffilter
             if (selectedColumn == "-- Select --" || string.IsNullOrEmpty(filterText))
             {
                 userTable.DefaultView.RowFilter = string.Empty;
@@ -91,10 +123,14 @@ namespace OJT_MT
             {
                 DataGridViewRow selectedRow = dataGridViewUsers.SelectedRows[0];
                 currentUserId = Convert.ToInt32(selectedRow.Cells["ID"].Value);
-                currentUserAccountType = selectedRow.Cells["Account Type"].Value.ToString();
+                currentUserAccountType = selectedRow.Cells["Account Type"].Value?.ToString() ?? string.Empty;
                 Debug.WriteLine("User ID:" + currentUserId);
                 Debug.WriteLine("Account Type: " + currentUserAccountType);
                 await LoadUserInfo(currentUserId, currentUserAccountType);
+            }
+            else
+            {
+
             }
         }
 
@@ -115,8 +151,28 @@ namespace OJT_MT
                         textBoxFirstName.Text = reader["first_name"]?.ToString() ?? string.Empty;
                         textBoxLastName.Text = reader["last_name"]?.ToString() ?? string.Empty;
                         textBoxContactNumber.Text = reader["contact_number"]?.ToString() ?? string.Empty;
-                        comboBoxSupervisorID.Text = reader["supervisor_id"]?.ToString() ?? string.Empty;
-                        panelSupervisorID.Show();
+                        //comboBoxSupervisorID.Text = reader["supervisor_id"]?.ToString() ?? string.Empty;
+                        foreach (var item in comboBoxSupervisorID.Items)
+                        {
+                            // Split the item by the hyphen and trim to get the digit part
+                            string itemText = item.ToString() ?? string.Empty;
+                            int hyphenIndex = itemText.IndexOf('-');
+
+                            if (hyphenIndex != -1)
+                            {
+                                // Extract the part before the hyphen and trim any whitespace
+                                string digitBeforeHyphen = itemText.Substring(0, hyphenIndex).Trim();
+
+                                // Check if it matches the given digit
+                                if (digitBeforeHyphen == reader["supervisor_id"]?.ToString())
+                                {
+                                    comboBoxSupervisorID.SelectedItem = item; // Select the matching item
+                                    break; // Exit loop once found
+                                }
+                            }
+                        }
+
+                            panelSupervisorID.Show();
                     }
                     else
                     {
@@ -138,7 +194,7 @@ namespace OJT_MT
                     }
                     else
                     {
-                        Debug.WriteLine("No student found with the given user ID.");
+                        Debug.WriteLine("No supervisor found with the given user ID.");
                     }
                 }
                 else
@@ -177,7 +233,7 @@ namespace OJT_MT
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            manageUsersPanelTimer.Start();
+            ManageUsersVisible(true);
         }
 
         private async void buttonSave_Click(object sender, EventArgs e)
@@ -186,7 +242,11 @@ namespace OJT_MT
             string newFirstName = textBoxFirstName.Text;
             string newLastName = textBoxLastName.Text;
             string newContactNumber = textBoxContactNumber.Text;
-            int newSupervisorId = Convert.ToInt32(comboBoxSupervisorID.Text);
+
+            
+
+
+
             try
             {
                 using var dbHelper = new DatabaseHelper();
@@ -205,6 +265,31 @@ namespace OJT_MT
                                         supervisor_id = @newSupervisorId
                                     WHERE
                                         student_id = @oldId;";
+
+
+                    var selectedItem = comboBoxSupervisorID.SelectedItem;
+                    int newSupervisorId = 1;
+                    if (selectedItem != null)
+                    {
+                        string selectedValue = selectedItem.ToString() ?? string.Empty;
+
+                        //Kunin yung number before hyphen, or take the whole string if no hyphen exists
+
+                        int hyphenIndex = selectedValue.IndexOf('-');
+                        if (hyphenIndex != -1)
+                        {
+                            //Extract the part before the hyphen
+                            newSupervisorId = Convert.ToInt32(selectedValue.Substring(0, hyphenIndex).Trim());
+                        }
+                        else
+                        {
+                            //If no hyphen, take the whole string
+                            newSupervisorId = Convert.ToInt32(selectedValue.Trim());
+                        }
+                    }
+                    else return;
+
+
 
                     parameters.AddRange(new[]
                     {
@@ -252,6 +337,8 @@ namespace OJT_MT
                     labelErrorMessage.Hide();
                     Console.WriteLine("User information updated successfully");
                     await LoadUsers();
+                   
+                    await LoadUserInfo(currentUserId, currentUserAccountType);
                 }
                 else
                 {
@@ -278,10 +365,22 @@ namespace OJT_MT
 
         private void buttonCancel_Click(object sender, EventArgs e)
         {
-
+            ManageUsersVisible(false);
         }
 
-        private void textBoxID_KeyPress(object sender, KeyPressEventArgs e)
+        private void ManageUsersVisible(bool visible)
+        {
+            if (visible)
+            {
+                tableLayoutPanelManageAccounts.ColumnStyles[1].Width = 390F;
+            }
+            else
+            {
+                tableLayoutPanelManageAccounts.ColumnStyles[1].Width = 10F;
+            }
+        }
+
+        private void textBoxID_KeyPress(object? sender, KeyPressEventArgs e) //keypress event for the ID textbox
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
@@ -325,13 +424,35 @@ namespace OJT_MT
                     }
                     else
                     {
-                        
+
                     }
 
                 }
-                catch
+                catch (Exception ex)
                 {
+                    MessageBox.Show("Error " + ex.Message);
+                }
+            }
+        }
 
+        private void AddUsersClick(object? sender, EventArgs e)
+        {
+            _mainForm.LoadForm(new Register(_mainForm));
+        }
+
+        
+
+        private void comboBoxSupervisorID_SelectionChangeCommitted(object? sender, EventArgs e)
+        {
+            var selectedItem = comboBoxSupervisorID.SelectedItem;
+
+            if (selectedItem != null)
+            {
+                string selectedValue = selectedItem.ToString() ?? string.Empty;
+                int hyphenIndex = selectedValue.IndexOf('-');
+                if (hyphenIndex != -1)
+                {
+                    comboBoxSupervisorID.Text = selectedValue.Substring(0, hyphenIndex).Trim();
                 }
             }
         }

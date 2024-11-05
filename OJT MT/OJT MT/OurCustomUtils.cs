@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing.Imaging;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -113,5 +114,42 @@ namespace OJT_MT
             }
             return EmailRegex.IsMatch(email);
         }
+
+
+
+
+        private static Color HexToColor(string hex)
+        {
+            return ColorTranslator.FromHtml(hex);
+        }
+
+        public static Bitmap RecolorImage(Image original, string hexColor)
+        {
+            Color color = HexToColor(hexColor);
+            ColorMatrix colorMatrix = new ColorMatrix(new float[][]
+            {
+            new float[] { 0, 0, 0, 0, 0 },
+            new float[] { 0, 0, 0, 0, 0 },
+            new float[] { 0, 0, 0, 0, 0 },
+            new float[] { 0, 0, 0, 1, 0 },
+            new float[] { color.R / 255f, color.G / 255f, color.B / 255f, 0, 1 }
+            });
+
+            Bitmap newImage = new Bitmap(original.Width, original.Height);
+            using (Graphics g = Graphics.FromImage(newImage))
+            {
+                using (ImageAttributes attributes = new ImageAttributes())
+                {
+                    attributes.SetColorMatrix(colorMatrix);
+                    g.DrawImage(original, new Rectangle(0, 0, newImage.Width, newImage.Height),
+                                0, 0, original.Width, original.Height,
+                                GraphicsUnit.Pixel, attributes);
+                }
+            }
+
+            return newImage;
+        }
+
+
     }
 }

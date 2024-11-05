@@ -36,23 +36,30 @@
             buttonInternList = new Button();
             buttonAccomplishmentReports = new Button();
             buttonAttendance = new Button();
+            flowLayoutPanelManageUsers = new FlowLayoutPanel();
+            buttonManageUsers = new Button();
+            buttonUpdateUsers = new Button();
+            buttonAddUser = new Button();
             buttonSettings = new Button();
             buttonLogOut = new Button();
             mainPanel = new Panel();
             sidebarTimer = new System.Windows.Forms.Timer(components);
+            manageUsersButtonTimer = new System.Windows.Forms.Timer(components);
             sidebar.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)menuButton).BeginInit();
+            flowLayoutPanelManageUsers.SuspendLayout();
             SuspendLayout();
             // 
             // sidebar
             // 
-            sidebar.BackColor = Color.FromArgb(12, 64, 41);
+            sidebar.BackColor = Color.FromArgb(32, 31, 30);
             sidebar.Controls.Add(panel2);
             sidebar.Controls.Add(buttonHome);
             sidebar.Controls.Add(buttonInternList);
             sidebar.Controls.Add(buttonAccomplishmentReports);
             sidebar.Controls.Add(buttonAttendance);
+            sidebar.Controls.Add(flowLayoutPanelManageUsers);
             sidebar.Controls.Add(buttonSettings);
             sidebar.Controls.Add(buttonLogOut);
             sidebar.Dock = DockStyle.Left;
@@ -60,7 +67,7 @@
             sidebar.MaximumSize = new Size(255, 1080);
             sidebar.MinimumSize = new Size(64, 200);
             sidebar.Name = "sidebar";
-            sidebar.Size = new Size(64, 900);
+            sidebar.Size = new Size(255, 900);
             sidebar.TabIndex = 4;
             // 
             // panel2
@@ -128,14 +135,14 @@
             buttonAccomplishmentReports.FlatAppearance.MouseDownBackColor = Color.FromArgb(87, 171, 134);
             buttonAccomplishmentReports.FlatAppearance.MouseOverBackColor = Color.FromArgb(37, 132, 90);
             buttonAccomplishmentReports.FlatStyle = FlatStyle.Flat;
-            buttonAccomplishmentReports.Font = new Font("Poppins", 12F);
+            buttonAccomplishmentReports.Font = new Font("Poppins", 8F);
             buttonAccomplishmentReports.ForeColor = SystemColors.ButtonHighlight;
             buttonAccomplishmentReports.Location = new Point(3, 148);
             buttonAccomplishmentReports.Name = "buttonAccomplishmentReports";
             buttonAccomplishmentReports.Padding = new Padding(15, 0, 0, 0);
             buttonAccomplishmentReports.Size = new Size(252, 41);
             buttonAccomplishmentReports.TabIndex = 4;
-            buttonAccomplishmentReports.Text = "            Accomplishment Reports";
+            buttonAccomplishmentReports.Text = "                 Accomplishment Reports";
             buttonAccomplishmentReports.TextAlign = ContentAlignment.MiddleLeft;
             buttonAccomplishmentReports.UseVisualStyleBackColor = true;
             buttonAccomplishmentReports.Click += buttonAccomplishmentReports_Click;
@@ -157,6 +164,81 @@
             buttonAttendance.TextAlign = ContentAlignment.MiddleLeft;
             buttonAttendance.UseVisualStyleBackColor = true;
             // 
+            // flowLayoutPanelManageUsers
+            // 
+            flowLayoutPanelManageUsers.Controls.Add(buttonManageUsers);
+            flowLayoutPanelManageUsers.Controls.Add(buttonUpdateUsers);
+            flowLayoutPanelManageUsers.Controls.Add(buttonAddUser);
+            flowLayoutPanelManageUsers.Location = new Point(0, 239);
+            flowLayoutPanelManageUsers.Margin = new Padding(0);
+            flowLayoutPanelManageUsers.MaximumSize = new Size(0, 120);
+            flowLayoutPanelManageUsers.MinimumSize = new Size(0, 40);
+            flowLayoutPanelManageUsers.Name = "flowLayoutPanelManageUsers";
+            flowLayoutPanelManageUsers.Size = new Size(301, 40);
+            flowLayoutPanelManageUsers.TabIndex = 0;
+            // 
+            // buttonManageUsers
+            // 
+            buttonManageUsers.FlatAppearance.BorderSize = 0;
+            buttonManageUsers.FlatAppearance.MouseDownBackColor = Color.FromArgb(87, 171, 134);
+            buttonManageUsers.FlatAppearance.MouseOverBackColor = Color.FromArgb(37, 132, 90);
+            buttonManageUsers.FlatStyle = FlatStyle.Flat;
+            buttonManageUsers.Font = new Font("Poppins", 12F);
+            buttonManageUsers.ForeColor = SystemColors.ButtonHighlight;
+            buttonManageUsers.Image = Properties.Resources.manage_accounts_icon;
+            buttonManageUsers.ImageAlign = ContentAlignment.MiddleLeft;
+            buttonManageUsers.Location = new Point(0, 0);
+            buttonManageUsers.Margin = new Padding(0);
+            buttonManageUsers.Name = "buttonManageUsers";
+            buttonManageUsers.Padding = new Padding(15, 0, 0, 0);
+            buttonManageUsers.Size = new Size(252, 40);
+            buttonManageUsers.TabIndex = 5;
+            buttonManageUsers.Text = "            Manage Users";
+            buttonManageUsers.TextAlign = ContentAlignment.MiddleLeft;
+            buttonManageUsers.UseVisualStyleBackColor = true;
+            buttonManageUsers.Visible = false;
+            buttonManageUsers.Click += buttonManageUsers_Click;
+            // 
+            // buttonUpdateUsers
+            // 
+            buttonUpdateUsers.FlatAppearance.BorderSize = 0;
+            buttonUpdateUsers.FlatAppearance.MouseDownBackColor = Color.FromArgb(87, 171, 134);
+            buttonUpdateUsers.FlatAppearance.MouseOverBackColor = Color.FromArgb(37, 132, 90);
+            buttonUpdateUsers.FlatStyle = FlatStyle.Flat;
+            buttonUpdateUsers.Font = new Font("Poppins", 9.75F);
+            buttonUpdateUsers.ForeColor = SystemColors.ButtonHighlight;
+            buttonUpdateUsers.ImageAlign = ContentAlignment.MiddleLeft;
+            buttonUpdateUsers.Location = new Point(0, 40);
+            buttonUpdateUsers.Margin = new Padding(0);
+            buttonUpdateUsers.Name = "buttonUpdateUsers";
+            buttonUpdateUsers.Padding = new Padding(15, 0, 0, 0);
+            buttonUpdateUsers.Size = new Size(252, 40);
+            buttonUpdateUsers.TabIndex = 6;
+            buttonUpdateUsers.Text = "                    Update Users";
+            buttonUpdateUsers.TextAlign = ContentAlignment.MiddleLeft;
+            buttonUpdateUsers.UseVisualStyleBackColor = true;
+            buttonUpdateUsers.Click += buttonUpdateUsers_Click;
+            // 
+            // buttonAddUser
+            // 
+            buttonAddUser.FlatAppearance.BorderSize = 0;
+            buttonAddUser.FlatAppearance.MouseDownBackColor = Color.FromArgb(87, 171, 134);
+            buttonAddUser.FlatAppearance.MouseOverBackColor = Color.FromArgb(37, 132, 90);
+            buttonAddUser.FlatStyle = FlatStyle.Flat;
+            buttonAddUser.Font = new Font("Poppins", 9.75F);
+            buttonAddUser.ForeColor = SystemColors.ButtonHighlight;
+            buttonAddUser.ImageAlign = ContentAlignment.MiddleLeft;
+            buttonAddUser.Location = new Point(0, 80);
+            buttonAddUser.Margin = new Padding(0);
+            buttonAddUser.Name = "buttonAddUser";
+            buttonAddUser.Padding = new Padding(15, 0, 0, 0);
+            buttonAddUser.Size = new Size(252, 40);
+            buttonAddUser.TabIndex = 7;
+            buttonAddUser.Text = "                    Add User";
+            buttonAddUser.TextAlign = ContentAlignment.MiddleLeft;
+            buttonAddUser.UseVisualStyleBackColor = true;
+            buttonAddUser.Click += buttonAddUser_Click;
+            // 
             // buttonSettings
             // 
             buttonSettings.FlatAppearance.BorderSize = 0;
@@ -167,7 +249,7 @@
             buttonSettings.ForeColor = SystemColors.ButtonHighlight;
             buttonSettings.Image = Properties.Resources.user_gear;
             buttonSettings.ImageAlign = ContentAlignment.MiddleLeft;
-            buttonSettings.Location = new Point(3, 242);
+            buttonSettings.Location = new Point(3, 282);
             buttonSettings.Name = "buttonSettings";
             buttonSettings.Padding = new Padding(15, 0, 0, 0);
             buttonSettings.Size = new Size(252, 41);
@@ -187,7 +269,7 @@
             buttonLogOut.ForeColor = SystemColors.ButtonHighlight;
             buttonLogOut.Image = Properties.Resources.sign_out_alt1;
             buttonLogOut.ImageAlign = ContentAlignment.MiddleLeft;
-            buttonLogOut.Location = new Point(3, 289);
+            buttonLogOut.Location = new Point(3, 329);
             buttonLogOut.Name = "buttonLogOut";
             buttonLogOut.Padding = new Padding(15, 0, 0, 0);
             buttonLogOut.Size = new Size(252, 41);
@@ -201,15 +283,20 @@
             // 
             mainPanel.BackColor = Color.FromArgb(11, 11, 11);
             mainPanel.Dock = DockStyle.Fill;
-            mainPanel.Location = new Point(64, 0);
+            mainPanel.Location = new Point(255, 0);
             mainPanel.Name = "mainPanel";
-            mainPanel.Size = new Size(1536, 900);
+            mainPanel.Size = new Size(1345, 900);
             mainPanel.TabIndex = 5;
             // 
             // sidebarTimer
             // 
             sidebarTimer.Interval = 10;
             sidebarTimer.Tick += sidebarTimer_Tick;
+            // 
+            // manageUsersButtonTimer
+            // 
+            manageUsersButtonTimer.Interval = 10;
+            manageUsersButtonTimer.Tick += manageUsersButtonTimer_Tick;
             // 
             // MainForm
             // 
@@ -226,6 +313,7 @@
             sidebar.ResumeLayout(false);
             panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)menuButton).EndInit();
+            flowLayoutPanelManageUsers.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -241,5 +329,10 @@
         private Panel mainPanel;
         private System.Windows.Forms.Timer sidebarTimer;
         private Button buttonAccomplishmentReports;
+        private Button buttonManageUsers;
+        private FlowLayoutPanel flowLayoutPanelManageUsers;
+        private Button buttonUpdateUsers;
+        private Button buttonAddUser;
+        private System.Windows.Forms.Timer manageUsersButtonTimer;
     }
 }

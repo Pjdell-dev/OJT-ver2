@@ -16,10 +16,10 @@ namespace OJT_MT
         private MySqlConnection? _connection;
         public DatabaseHelper()
         {
-            _connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+            _connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString; //nasa app.config yung database connection string para madali magpalit
         }
 
-        private async Task<MySqlConnection> GetConnectionAsync()
+        internal async Task<MySqlConnection> GetConnectionAsync()
         {
             if (_connection == null)
                 _connection = new MySqlConnection(_connectionString);
@@ -87,6 +87,53 @@ namespace OJT_MT
             //Check if the result is null (user not found) or compare passwords
             return result != null && Convert.ToString(result) == password;
         }
+
+
+        public async Task InsertDataAsync(string[] queries, params MySqlParameter[][] parameters)
+        {
+            if (queries.Length != parameters.Length)
+            {
+                throw new ArgumentException("The number of queries must match the number of parameter arrays");
+            }
+
+            await using var connection = new MySqlConnection(_connectionString);
+            await connection.OpenAsync();
+
+            await using var transaction = await connection.BeginTransactionAsync();
+            for (int i = 0; i < queries.Length; i++)
+            {
+                using var command = CreateCommand(queries[i], parameters[i], connection, transaction);
+                await command.ExecuteNonQueryAsync();
+            }
+
+            await transaction.CommitAsync();
+            try
+            {
+                
+            }
+            catch (MySqlException ex)
+            {
+                await transaction.RollbackAsync();
+                throw new Exception("Error inserting data", ex);
+            }
+        }
+
+        private MySqlCommand CreateCommand(string query, MySqlParameter[] parameters, MySqlConnection connection, MySqlTransaction transaction)
+        {
+            var command = new MySqlCommand(query, connection, transaction);
+            if (parameters != null)
+            {
+                command.Parameters.AddRange(parameters);
+            }
+            return command;
+        }
+
+
+
+
+
+
+
         public void Dispose()
         {
             if (_connection != null)
